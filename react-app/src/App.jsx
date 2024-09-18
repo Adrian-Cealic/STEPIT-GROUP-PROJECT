@@ -1,9 +1,10 @@
 import React from 'react'
+import OtherComponent from './pages/Doctors'
 
 const App = () => {
   return (
     <div>
-      <div className="text-xl">asdasd</div>
+      <OtherComponent/>
     </div>
   )
 }
