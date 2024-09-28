@@ -2,8 +2,14 @@ import { useState, useEffect } from 'react'
 import doctorsContext from './contexts/doctorsContext'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
-
+import React from 'react';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 //Imports pentru pagini
+
+// Importă alte componente precum Signup dacă există
+
 
 const App = () => {
   //Adaugati state hooks care va trebuiesc pentru a pastra datele din api pentru a folosi context-ul
@@ -51,5 +57,41 @@ const App = () => {
     </doctorsContext.Provider>
   )
 }
+
+
+// Importează alte componente precum Signup, Dashboard după necesități
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard'; // Creează această componentă
+import ProtectedRoute from './components/ProtectedRoute';
+
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route 
+          path="/dashboard" 
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+        {/* Adaugă alte rute după necesități */}
+        {/* Exemplu:
+        <Route path="/signup" element={<Signup />} />
+        */}
+      </Routes>
+    </Router>
+  );
+}
+
+
+
+
 
 export default App
