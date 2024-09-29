@@ -8,52 +8,46 @@ import Doctor from './Pages/Doctor'
 import SignUp from './Pages/SignUp'
 
 const App = () => {
-  //Adaugati state hooks care va trebuiesc pentru a pastra datele din api pentru a folosi context-ul
   const [doctors, setDoctors] = useState([]);
   const [favDoctors, setFavDoctors] = useState([]);
   const [services, setServices] = useState([]);
   const [favServices, setFavServices] = useState([]);
 
-
-  //DACA AVETI NEVOIE DE ENDPOINT-URI NOI IN API, SCRIETI-I LUI CRISTI SAU LUI ADRIAN ******************************************************************
-
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        //Doctori si Servicii
+        // Fetch doctors data
         const responseDoctors = await axios.get("https://apiv2doctors.onrender.com/doctors");
-        setDoctors(responseDoctors.data);
+        // Access the correct path to data based on the structure of the API response
+        setDoctors(responseDoctors.data.doctors || responseDoctors.data);
 
+        // Similarly, fetch services, favorite doctors, and services
         const responseServices = await axios.get("SERVICE_API_ENDPOINT_HERE");
-        setServices(responseServices.data);
+        setServices(responseServices.data.services || responseServices.data);
 
-        //Doctori si Servicii Favorite
         const responseFavDoctors = await axios.get("FAV_DOCTORS_API_ENDPOINT_HERE");
-        setFavDoctors(responseFavDoctors.data);
+        setFavDoctors(responseFavDoctors.data.favDoctors || responseFavDoctors.data);
 
         const responseFavServices = await axios.get("FAV_SERVICES_API_ENDPOINT_HERE");
-        setFavServices(responseFavServices.data);
+        setFavServices(responseFavServices.data.favServices || responseFavServices.data);
       } catch (err) {
         console.error('Error fetching items:', err);
       }
-    }
+    };
 
     fetchItems();
   }, []);
-
-
   return (
-    //Adaugati in value la doctorsContext.Provider state hooks de care aveti nevoie
     <doctorsContext.Provider value={{ doctors, setDoctors, favDoctors, setFavDoctors, services, setServices, favServices, setFavServices }}>
       <BrowserRouter>
         <Routes>
            <Route path='/' element={<SignUp />} />
           <Route path='/Doctors' element={<DoctorsFavPage doctors={doctors} />} />
-          <Route path='/Doctors/:doctorId' element={<Doctor />} />
+          <Route path='/Doctors/:doctorId' element={<Doctor doctors={doctors} />} />
         </Routes>
       </BrowserRouter>
     </doctorsContext.Provider>
-  )
+  );
 }
 
-export default App
+export default App;
