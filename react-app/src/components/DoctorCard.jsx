@@ -4,9 +4,11 @@ import Calendar from '../assets/Calendar.svg'
 import Info from '../assets/Info.svg'
 import Like from '../assets/Like.svg'
 import Question from '../assets/Question.svg'
-import { useParams,Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
-const DoctorCard = ({ field, doctorName }) => {
+const DoctorCard = ({ field, doctorName, doctorId }) => {
+
+
     return (
         <div className='flex items-center bg-[#CAD6FF] rounded-[17px] max-w-[600px] max-h-[200px]'>
             <div className="py-[12px] pl-[11px] pr-[9px]">
@@ -18,7 +20,7 @@ const DoctorCard = ({ field, doctorName }) => {
                     <span>{field}</span>
                 </div>
                 <div className="flex flex-row items-center gap-[5px] mt-[20px]">
-                    <Link to={`/Doctors/${}`}>
+                    <Link to={`/Doctors/${doctorId}`}>
                         <button className='bg-[#2260FF] text-white rounded-[18px] px-4 py-1 mr-[10px]'>
                             Info
                         </button>
