@@ -24,7 +24,7 @@ const DoctorCard = ({ field, doctorName, doctorId }) => {
                         <button className='bg-[#2260FF] text-white rounded-[18px] px-4 py-1 mr-[10px]'>
                             Info
                         </button>
-                    </Link> */}
+                    </Link>
                     <button className='bg-white rounded-full p-3'>
                         <img src={Calendar} alt="" />
                     </button>

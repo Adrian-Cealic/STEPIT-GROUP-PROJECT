@@ -31,7 +31,7 @@ const SignUp = () => {
         </div>
         <button className='mt-5 text-lg text-white w-[300px] h-[50px] rounded-full bg-[#2260FF]'>Sign Up</button>
         <span className='mt-5'>Alredy have an account? <a href="" className='text-blue-800'>Log In</a></span>
-      </div>
+      </div> 
     </>
   )
 }
