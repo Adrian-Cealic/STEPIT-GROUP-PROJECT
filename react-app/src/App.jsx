@@ -3,6 +3,7 @@ import doctorsContext from './contexts/doctorsContext'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
 import DoctorsFavPage from './Pages/DoctorsFavPage'
+import Doctor from './Pages/Doctor'
 //Imports pentru pagini
 
 const App = () => {
@@ -15,30 +16,29 @@ const App = () => {
 
   //DACA AVETI NEVOIE DE ENDPOINT-URI NOI IN API, SCRIETI-I LUI CRISTI SAU LUI ADRIAN ******************************************************************
 
-useEffect(() => {
-  const fetchItems = async () => {    
-    try {
-      //Doctori si Servicii
-      const responseDoctors = await axios.get("https://apiv2doctors.onrender.com/doctors");
-      setDoctors(responseDoctors.data);
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        //Doctori si Servicii
+        const responseDoctors = await axios.get("https://apiv2doctors.onrender.com/doctors");
+        setDoctors(responseDoctors.data);
 
-      const responseServices = await axios.get("SERVICE_API_ENDPOINT_HERE");
-      setServices(responseServices.data);
+        const responseServices = await axios.get("SERVICE_API_ENDPOINT_HERE");
+        setServices(responseServices.data);
 
-      //Doctori si Servicii Favorite
-      const responseFavDoctors = await axios.get("FAV_DOCTORS_API_ENDPOINT_HERE");
-      setFavDoctors(responseFavDoctors.data);
+        //Doctori si Servicii Favorite
+        const responseFavDoctors = await axios.get("FAV_DOCTORS_API_ENDPOINT_HERE");
+        setFavDoctors(responseFavDoctors.data);
 
-      const responseFavServices = await axios.get("FAV_SERVICES_API_ENDPOINT_HERE");
-      setFavServices(responseFavServices.data);
-    } catch (err) {
-      console.error('Error fetching items:', err);
+        const responseFavServices = await axios.get("FAV_SERVICES_API_ENDPOINT_HERE");
+        setFavServices(responseFavServices.data);
+      } catch (err) {
+        console.error('Error fetching items:', err);
+      }
     }
-  }
 
-  fetchItems();
-}, []);
-
+    fetchItems();
+  }, []);
 
 
   return (
@@ -46,7 +46,8 @@ useEffect(() => {
     <doctorsContext.Provider value={{ doctors, setDoctors, favDoctors, setFavDoctors, services, setServices, favServices, setFavServices }}>
       <BrowserRouter>
         <Routes>
-          <Route path='/Doctors' element={<DoctorsFavPage />} />
+          <Route path='/Doctors' element={<DoctorsFavPage doctors={doctors} />} />
+          <Route path='/Doctors/:doctorId' element={<Doctor />} />
         </Routes>
       </BrowserRouter>
     </doctorsContext.Provider>
