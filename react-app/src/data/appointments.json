@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "doctor": "Dr. Olivia Turner, M.D.",
+      "specialty": "Dermato-Endocrinology",
+      "status": "Complete",
+      "date": "12 June",
+      "time": "9:30 AM"
+    },
+    {
+      "id": 2,
+      "doctor": "Dr. Alexander Bennett, Ph.D.",
+      "specialty": "Dermato-Genetics",
+      "status": "Upcoming",
+      "date": "20 June",
+      "time": "3:00 PM"
+    },
+    {
+      "id": 3,
+      "doctor": "Dr. Sophia Martinez, Ph.D.",
+      "specialty": "Cosmetic Bioengineering",
+      "status": "Cancelled",
+      "date": "15 June",
+      "time": "9:30 AM"
+    }
+  ]
+  
