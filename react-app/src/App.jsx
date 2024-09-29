@@ -39,7 +39,7 @@ const App = () => {
     <doctorsContext.Provider value={{ doctors, setDoctors, favDoctors, setFavDoctors, services, setServices, favServices, setFavServices }}>
       <BrowserRouter>
         <Routes>
-          <Route path='/Doctors' element={<DoctorsFavPage doctors={doctors} />} />
+          <Route path='/Doctors' element={<DoctorsFavPage />} />
           <Route path='/Doctors/:doctorId' element={<Doctor doctors={doctors} />} />
         </Routes>
       </BrowserRouter>

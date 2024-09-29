@@ -10,7 +10,7 @@ const DoctorCard = ({ field, doctorName, doctorId }) => {
 
 
     return (
-        <div className='flex items-center bg-[#CAD6FF] rounded-[17px] max-w-[600px] max-h-[200px]'>
+        <div className='flex items-center bg-[#CAD6FF] rounded-[17px] max-w-[600px] max-h-[200px] pr-[15px]'>
             <div className="py-[12px] pl-[11px] pr-[9px]">
                 <img className='rounded-[100px]' src="https://i.ibb.co/BPwXDc5/18f72cca9421c8847e068a8451cdf5c4.png" alt="" />
             </div>
