@@ -41,6 +41,7 @@ const App = () => {
         <Routes>
           <Route path='/Doctors' element={<DoctorsFavPage doctors={doctors} />} />
           <Route path='/Doctors/:doctorId' element={<Doctor doctors={doctors} />} />
+        
         </Routes>
       </BrowserRouter>
     </doctorsContext.Provider>
