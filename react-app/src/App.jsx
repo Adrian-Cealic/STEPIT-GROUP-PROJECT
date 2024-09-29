@@ -5,6 +5,7 @@ import axios from 'axios'
 import DoctorsFavPage from './Pages/DoctorsFavPage'
 import Doctor from './Pages/Doctor'
 //Imports pentru pagini
+import SignUp from './Pages/SignUp'
 
 const App = () => {
   //Adaugati state hooks care va trebuiesc pentru a pastra datele din api pentru a folosi context-ul
@@ -46,6 +47,7 @@ const App = () => {
     <doctorsContext.Provider value={{ doctors, setDoctors, favDoctors, setFavDoctors, services, setServices, favServices, setFavServices }}>
       <BrowserRouter>
         <Routes>
+           <Route path='/' element={<SignUp />} />
           <Route path='/Doctors' element={<DoctorsFavPage doctors={doctors} />} />
           <Route path='/Doctors/:doctorId' element={<Doctor />} />
         </Routes>
