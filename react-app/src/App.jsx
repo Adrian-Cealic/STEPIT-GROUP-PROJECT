@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
 import DoctorsFavPage from './Pages/DoctorsFavPage'
 import Doctor from './Pages/Doctor'
+import { Register } from './pages/Register'
 //Imports pentru pagini
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
     <doctorsContext.Provider value={{ doctors, setDoctors, favDoctors, setFavDoctors, services, setServices, favServices, setFavServices }}>
       <BrowserRouter>
         <Routes>
+          <Route path='/' element={<Register/>} />
           <Route path='/Doctors' element={<DoctorsFavPage doctors={doctors} />} />
           <Route path='/Doctors/:doctorId' element={<Doctor />} />
         </Routes>
