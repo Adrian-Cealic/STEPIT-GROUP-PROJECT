@@ -1,13 +1,19 @@
-import React from 'react'
-import DoctorCard from '../components/DoctorCard'
+import React from 'react';
+import DoctorCard from '../components/DoctorCard';
+
 const DoctorsFavPage = ({ doctors }) => {
     return (
-        <div className='jusify-center flex flex-col gap-[15px]'>
-            {
-                doctors.map((doctors,key) => <DoctorCard key={key} field={doctors.field} doctorName={doctors.name} />)
-            }
+        <div className='justify-center flex flex-col gap-[15px]'>
+            {doctors.map((doctor) => (
+                <DoctorCard 
+                    key={doctor.id} 
+                    field={doctor.field} 
+                    doctorName={doctor.name} 
+                    doctorId={doctor.id} 
+                />
+            ))}
         </div>
-    )
+    );
 }
 
-export default DoctorsFavPage
+export default DoctorsFavPage;
