@@ -1,7 +1,11 @@
 import React from 'react'
 import seePass from '../assets/seePassword.svg'
 
+
 const SignUp = () => {
+
+  const passwordInput = document.querySelector('input[type="password"]');
+
   return (
     <>
       <div className='container mx-auto flex flex-col items-center'>
@@ -14,7 +18,11 @@ const SignUp = () => {
             <div className='mb-3 h-[70px]'>
                 <h1 className='text-xl font-[500]'>Password</h1>
                 <input type='password' className='w-[300px] h-[45px] bg-[#ECF1FF] text-[#809CFF] rounded-lg outline-none' placeholder='Password' />
-                <img src={seePass} className='relative -top-[25px] left-[310px]' alt="" />
+                <img src={seePass} className='relative -top-[25px] left-[310px] cursor-pointer' onClick={
+                  () => {
+                    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password'
+                  }
+                } alt="" />
             </div>
             <div className='mb-3 h-[70px]'>
                 <h1 className='text-xl font-[500]'>Email</h1>
