@@ -1,4 +1,4 @@
-import { FaEyeSlash } from "react-icons/fa";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useState } from 'react';
 
 const PasswordManager = () => {
@@ -7,47 +7,67 @@ const PasswordManager = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const handleChangePassword = () => {
+    if (newPassword === confirmPassword) {
+      alert("Password changed successfully!");
+    } else {
+      alert("Passwords do not match.");
+    }
+  };
+
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold">Password Manager</h1>
-      <form className="mt-4 space-y-4">
+    <div className="p-6 max-w-lg mx-auto bg-white rounded-md shadow-md mt-10">
+      <h1 className="text-2xl font-bold mb-6">Password Manager</h1>
+      <form className="space-y-6">
         <div>
-          <label>Current Password</label>
+          <label className="block text-sm font-medium">Current Password</label>
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
-              className="p-2 border w-full"
+              className="p-3 border w-full mt-2 rounded-md"
             />
-            <FaEyeSlash className="absolute right-2 top-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
+            {showPassword ? (
+              <FaEye className="absolute right-3 top-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
+            ) : (
+              <FaEyeSlash className="absolute right-3 top-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
+            )}
           </div>
         </div>
         <div>
-          <label>New Password</label>
+          <label className="block text-sm font-medium">New Password</label>
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="p-2 border w-full"
+              className="p-3 border w-full mt-2 rounded-md"
             />
-            <FaEyeSlash className="absolute right-2 top-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
+            {showPassword ? (
+              <FaEye className="absolute right-3 top-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
+            ) : (
+              <FaEyeSlash className="absolute right-3 top-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
+            )}
           </div>
         </div>
         <div>
-          <label>Confirm New Password</label>
+          <label className="block text-sm font-medium">Confirm New Password</label>
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="p-2 border w-full"
+              className="p-3 border w-full mt-2 rounded-md"
             />
-            <FaEyeSlash className="absolute right-2 top-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
+            {showPassword ? (
+              <FaEye className="absolute right-3 top-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
+            ) : (
+              <FaEyeSlash className="absolute right-3 top-3 cursor-pointer" onClick={() => setShowPassword(!showPassword)} />
+            )}
           </div>
         </div>
-        <button type="button" onClick={() => alert("Password changed successfully!")} className="bg-blue-500 text-white p-2 w-full">
+        <button type="button" onClick={handleChangePassword} className="bg-blue-500 text-white p-3 w-full rounded-md mt-4">
           Change Password
         </button>
       </form>
