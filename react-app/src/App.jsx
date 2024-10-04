@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import DoctorsFavPage from './Pages/DoctorsFavPage';
 import Doctor from './Pages/Doctor';
+import SetSchedule from './Pages/SetSchedule';
 
 const App = () => {
   const [doctors, setDoctors] = useState([]);
@@ -41,6 +42,7 @@ const App = () => {
         <Routes>
           <Route path='/Doctors' element={<DoctorsFavPage />} />
           <Route path='/Doctors/:doctorId' element={<Doctor doctors={doctors} />} />
+          <Route path='/Doctors/appointment' element={<SetSchedule />}/>
         </Routes>
       </BrowserRouter>
     </doctorsContext.Provider>
