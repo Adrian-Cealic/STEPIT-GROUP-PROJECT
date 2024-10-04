@@ -1,3 +1,4 @@
+/*
 import { useState, useEffect } from 'react';
 import doctorsContext from './contexts/doctorsContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -48,3 +49,23 @@ const App = () => {
 }
 
 export default App;
+*/
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Settings from './components/Settings';
+import PasswordManager from './components/PasswordManager';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import HelpCenter from './components/HelpCenter';
+
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Settings />} />
+      <Route path="/password-manager" element={<PasswordManager />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/help-center" element={<HelpCenter />} />
+    </Routes>
+  </Router>
+);
+
+export default App;
+
