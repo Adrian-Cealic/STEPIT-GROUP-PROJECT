@@ -9,7 +9,7 @@ import Half from '../assets/HalfScreen.jpg'
 const PayPage = () => {
 
     const [selectedOption, setSelectedOption] = useState('');
-
+gi
     const HandleOptionSelect = (option) =>{
         setSelectedOption(option);
     }
